@@ -24,8 +24,8 @@ resource "proxmox_vm_qemu" "vm" {
   }
 
   disk {
-      id           = 1 # 0 - already exists in template OS
-      size         = 10
+      #id           = 1 # 0 - already exists in template OS
+      size         = "10G"
       type         = "virtio"
       storage      = "local-lvm"
       storage_type = "lvmthin"

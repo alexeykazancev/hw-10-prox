@@ -2,6 +2,14 @@ variable "pm_api_url" {
   description = "Proxmox API URL"
 }
 
+variable "pm_api_token_id" {
+  description = "Proxmox API token id"
+}
+
+variable "pm_api_token_secret" {
+  description = "Proxmox api token secret"
+}
+
 variable "pm_user" {
   description = "Proxmox API username"
 }
