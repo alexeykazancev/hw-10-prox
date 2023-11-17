@@ -45,6 +45,7 @@ qm set 9500 --agent enabled=1
 qm template 9500
 
 после этого скачиваем проект на машину с которой будем доплоить виртуалки
+
 git clone https://github.com/alexeykazancev/hw-10-prox.git
 
 переходим в папку проекта, там есть файл terraform.tfvars.example , переименовываем его в terraform.tfvars меняем внутри значения переменных на свои
