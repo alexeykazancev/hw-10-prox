@@ -28,7 +28,7 @@ resource "proxmox_vm_qemu" "vm" {
       size         = "10G"
       type         = "virtio"
       storage      = "local-lvm"
-      storage_type = "lvmthin"
+      #storage_type = "lvmthin"
       iothread     = 1
       discard      = "ignore"
   }
