@@ -53,9 +53,3 @@ terraform init
 terraform plan
 и запускаем деплой
 terraform apply
-
-
-# https://austinsnerdythings.com/2021/09/01/how-to-deploy-vms-in-proxmox-with-terraform/
-
-# https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/
-
