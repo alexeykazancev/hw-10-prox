@@ -16,7 +16,7 @@ resource "proxmox_vm_qemu" "vm" {
   bootdisk = "scsi0"
 
   network {
-    id        = 0
+    #id        = 0
     model     = "virtio"
     bridge    = var.vm_bridge
     firewall  = false
@@ -29,7 +29,7 @@ resource "proxmox_vm_qemu" "vm" {
       type         = "virtio"
       storage      = "local-lvm"
       storage_type = "lvmthin"
-      iothread     = true
+      iothread     = 1
       discard      = "ignore"
   }
 

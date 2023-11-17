@@ -5,5 +5,5 @@ provider "proxmox" {
   pm_password     = var.pm_password
   
   pm_tls_insecure = var.pm_tls_insecure
-  pm_parallel     = var.pm_parallel
+  #pm_parallel     = var.pm_parallel
 }
