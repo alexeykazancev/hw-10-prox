@@ -24,26 +24,43 @@ wget https://cloud.debian.org/images/cloud/bullseye/20231013-1532/debian-11-gene
 
 и выполняем ряд действий: 
 1. инсталируем гест-агент
+
 #virt-customize -a image-name.img/qcow2 --install qemu-guest-agent
+
 2. добавляем юзера если нужно
+
 #virt-customize -a image-name.img/qcow2 --run-command 'useradd username'
+
 3. создаем директорию юзера, куда положим его ссх ключ 
+
 #virt-customize -a image-name.img/qcow2 --run-command 'mkdir -p /home/username/.ssh'
+
 4. импортируем ключ
+
 #virt-customize -a image-name.img/qcow2 --ssh-inject username:file:/home/username/.ssh/id_rsa.pub
+
 5. меняем права на домашнюю директорию
+
 #virt-customize -a image-name.img/qcow2 --run-command 'chown -R username:username /home/username'
 
 затем выполняем создание шаблонов на прокс ноде для обоих образов, меняя только id:
 
-#qm create 9500 --name "ub-2004-cloudinit-tpl" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
-#qm importdisk 9500 focal-server-cloudimg-amd64.img local-lvm
-#qm set 9500 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9500-disk-0
-#qm set 9500 --boot c --bootdisk scsi0
-#qm set 9500 --ide2 local-lvm:cloudinit
-#qm set 9500 --serial0 socket --vga serial0
-#qm set 9500 --agent enabled=1
-#qm template 9500
+qm create 9500 --name "ub-2004-cloudinit-tpl" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
+
+qm importdisk 9500 focal-server-cloudimg-amd64.img local-lvm
+
+qm set 9500 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9500-disk-0
+
+qm set 9500 --boot c --bootdisk scsi0
+
+qm set 9500 --ide2 local-lvm:cloudinit
+
+qm set 9500 --serial0 socket --vga serial0
+
+qm set 9500 --agent enabled=1
+
+qm template 9500
+
 
 после этого скачиваем проект на машину с которой будем доплоить виртуалки
 
@@ -52,8 +69,13 @@ git clone https://github.com/alexeykazancev/hw-10-prox.git
 переходим в папку проекта, там есть файл terraform.tfvars.example , переименовываем его в terraform.tfvars меняем внутри значения переменных на свои
 
 запускаем инициализацию провайдера
+
 terraform init
+
 далее смотрим , что у нас создастся
+
 terraform plan
+
 и запускаем деплой
+
 terraform apply
