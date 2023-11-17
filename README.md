@@ -15,7 +15,9 @@ pveum user add terraform-prov@pve --password <password>
 pveum aclmod / -user terraform-prov@pve -role TerraformProv
 
 Далее нам нужно создать шаблоны на ноде, для этого скачиваем к себе во временное место облачные образы, например дебиан и убунту
+
 wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
+
 wget https://cloud.debian.org/images/cloud/bullseye/20231013-1532/debian-11-genericcloud-amd64-20231013-1532.qcow2
 
 далее нам нужно подготовить образы, для этого ставим доп пакет:  apt update -y && apt install libguestfs-tools -y
