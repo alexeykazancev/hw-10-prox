@@ -1,0 +1,13 @@
+https://ochoaprojects.github.io/posts/ProxMoxCloudInitImage/
+
+https://austinsnerdythings.com/2021/09/01/how-to-deploy-vms-in-proxmox-with-terraform/
+
+https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/
+
+https://registry.terraform.io/providers/Telmate/proxmox/latest/docs
+
+TF_LOG=DEBUG
+
+https://www.norocketscience.at/blog/terraform/install-proxmox-virtual-machines-with-terraform
+
+https://automateinfra.com/2021/03/23/how-to-work-with-multiple-terraform-provisioners/
